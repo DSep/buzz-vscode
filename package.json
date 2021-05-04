@@ -1,0 +1,25 @@
+{
+    "name": "buzz",
+    "displayName": "Buzz",
+    "description": "Buzz Programming Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "buzz",
+            "aliases": ["Buzz", "buzz"],
+            "extensions": [".bzz"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "buzz",
+            "scopeName": "source.bzz",
+            "path": "./syntaxes/buzz.tmLanguage.json"
+        }]
+    }
+}
