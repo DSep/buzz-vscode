@@ -1,46 +1,83 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Buzz",
-	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#variables"
-		},
-		{
-			"include": "#constant"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#functions"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Buzz",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#constants"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#strings"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line",
+                    "begin": "#",
+                    "end": "\n"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.buzz",
+                    "match": "\\w+\\ *="
+                }
+            ]
+        },
+        "constants": {
 			"patterns": [
 				{
-					"name": "keyword.control.buzz",
-					"match": "\\b(if|while|for|return)\\b"
+                    "name": "constant.language.buzz",
+					"match": "\\b(true|false|nil)\\b"
 				}
 			]
 		},
-		"strings": {
-			"name": "string.quoted.double.buzz",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.buzz",
-					"match": "\\\\."
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.buzz",
+                    "match": "\\b(if|while|for|return)\\b"
+                },
+                {
+					"name": "keyword.operator.comparison.dart",
+					"match": "(==|!=|<=?|>=?)"
+				},
+                {
+                    "name": "keyword.declaration.dart",
+					"match": "\\b(var)\\b"
+				},
+                {
+					"name": "keyword.operator.logical.dart",
+					"match": "\\b(!|and|or)\\b"
 				}
-			]
-		}
-	},
-	"scopeName": "source.bzz"
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.buzz",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.buzz",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    },
+    "scopeName": "source.bzz"
 }
