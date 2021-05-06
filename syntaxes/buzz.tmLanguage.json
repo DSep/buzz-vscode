@@ -6,10 +6,10 @@
             "include": "#comments"
         },
         {
-            "include": "#variables"
+            "include": "#constants"
         },
         {
-            "include": "#constants"
+            "include": "#variables"
         },
         {
             "include": "#keywords"
@@ -31,39 +31,77 @@
                 }
             ]
         },
-        "variables": {
+        "constants": {
             "patterns": [
                 {
-                    "name": "variable.buzz",
-                    "match": "\\w+\\ *="
+                    "name": "constant.language.buzz",
+                    "match": "(?<!\\#)\\b(true|false|nil)\\b"
+                },
+                {
+                    "name": "constant.numeric.buzz",
+                    "match": "(?<!\\#)(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b"
+                },
+                {
+                    "match": "(?<!\\#)(function\\s+)?([_]*[a-zA-Z][a-zA-Z0-9_]*)(\\()",
+                    "captures": {
+                        "1":{
+                            "name": "storage.type.buzz"
+                        },
+                        "2": {
+                            "name": "entity.name.function.buzz"
+                        }
+                    }
                 }
             ]
         },
-        "constants": {
-			"patterns": [
-				{
-                    "name": "constant.language.buzz",
-					"match": "\\b(true|false|nil)\\b"
-				}
-			]
-		},
+        "variables": {
+            "patterns": [
+                {
+                    "match": "(?<!\\#)\\b(var\\s+)?([_]*[a-zA-Z][a-zA-Z0-9_]*)(\\s*(=)[^=]\\s*([_]*[a-zA-Z][a-zA-Z0-9_]*))?\\b",
+                    "captures": {
+                        "1":{
+                            "name": "storage.type.buzz"
+                        },
+                        "2": {
+                            "name": "variable.other.readwrite.buzz"
+						},
+                        "3": {
+                            "name": "variable.other.readwrite.buzz"
+						}
+					}
+                }
+            ]
+        },
         "keywords": {
             "patterns": [
                 {
                     "name": "keyword.control.buzz",
-                    "match": "\\b(if|while|for|return)\\b"
+                    "match": "(?<!\\#)\\b(else|for|if|return|while)\\b"
                 },
                 {
-					"name": "keyword.operator.comparison.dart",
-					"match": "(==|!=|<=?|>=?)"
+                    "name": "keyword.control.buzz",
+                    "match": "(?<!\\#)\\b(break|continue)\\b"
+                },
+                {
+					"name": "keyword.operator.comparison.buzz",
+					"match": "(?<!\\#)(==|!=|<=|>=)"
+				},
+
+                {
+					"name": "keyword.operator.logical.buzz",
+					"match": "(?<!\\#)\\b(!|and|or)\\b"
 				},
                 {
-                    "name": "keyword.declaration.dart",
-					"match": "\\b(var)\\b"
+					"name": "keyword.operator.assignment.arithmetic.buzz",
+					"match": "(?<!\\#)(([+*/%-]|\\~)=)"
 				},
                 {
-					"name": "keyword.operator.logical.dart",
-					"match": "\\b(!|and|or)\\b"
+					"name": "keyword.operator.assignment.buzz",
+					"match": "(?<!\\#)(=)"
+				},
+                {
+					"name": "keyword.operator.arithmetic.buzz",
+					"match": "(\\-|\\+|\\*|\\/|\\~\\/|%)"
 				}
             ]
         },
