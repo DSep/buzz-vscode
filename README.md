@@ -1,50 +1,46 @@
-# buzz README
+# Buzz VSCode Extension
 
-This is the README for your extension "buzz". After writing up a brief description, we recommend including the following sections.
+This is a VSCode extension to provide language support for the swarm programming language [Buzz](https://the.swarming.buzz/). Buzz is a swarm oriented programming language created by [MISTLab](https://mistlab.ca) and published on Github [here](https://github.com/MISTLab/Buzz/).
+
+The extension is in the process of being added to the VSCode extension marketplace!
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension is a work in progress. At this time, this extension provides syntax highlighting.
 
-For example if there is an image subfolder under your extension project workspace:
+The actual _grammar_ (what tells VSCode how to highlight) is located in ./syntaxes/asm.tmLanguage.json. This TextMate-formatted .json uses a tree-like structure to highlight in order, top to bottom. It matches using Regex, but looks a little bit different than standard Perl or JS (eg needing to double escape with `\\` instead of the usual `\` due to it being formatted within JSON).
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Coming soon: Demo images, GIFS!
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Once available, you can just install the extension and it should work!
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Currently, there are a few kinks still being worked out:
+- Hightlighting brackets needs to be done properly.
+- Bug in identifying variable names following assignment statements.
+
+## Contributing
+
+Feel free to make improvements and submit a PR! And if you would like to chat or discuss anything, feel free to go to discussions, or if there's an issue you'd like to report, open an issue.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1
 
-### 1.0.0
+Initial release of code to the world!
 
-Initial release of ...
 
-### 1.0.1
+## Creation and Reference
+This extension was built using the CLI tools [Yeoman](https://yeoman.io/) and [VS Code Extension Generator](https://www.npmjs.com/package/generator-code). 
 
-Fixed issue #.
+Important documentation that was used in learning how to build extensions and language support for VSCode:
+- [Building an extension](https://code.visualstudio.com/api/get-started/your-first-extension)
+- [Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
+- [TextMate Bundle Background](https://www.apeth.com/nonblog/stories/textmatebundle.html)
+- [TextMate Language Grammar](https://macromates.com/manual/en/language_grammars)
 
-### 1.1.0
-
-Added features X, Y, and Z.
 
 **Enjoy!**
